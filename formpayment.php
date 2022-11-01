@@ -12,6 +12,7 @@
     <button type="submit" onclick="payWithPaystack()"> Pay </button>
   </div>
 </form>
+      
       <script>
       var paymentForm = document.getElementById('paymentForm');
     paymentForm.addEventListener('submit', payWithPaystack, false);
@@ -20,9 +21,10 @@
       key: 'YOUR_PUBLIC_KEY', // Replace with your public key
     email: document.getElementById('email-address').value,
     amount: document.getElementById('amount').value * 100, // the amount value is multiplied by 100 to convert to the lowest currency unit
-    currency: 'NGN', // Use GHS for Ghana Cedis or USD for US Dollars
+    currency: 'GHS', // Use GHS for Ghana Cedis or USD for US Dollars
     ref: 'YOUR_REFERENCE', // Replace with a reference you generated
-    currency: 'GHS',
+ 
+       
     callback: function(response) {
       //this happens after the payment is completed successfully
       var reference = response.reference;
