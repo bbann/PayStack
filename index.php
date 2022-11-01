@@ -14,15 +14,16 @@
 </form>
       
       <script>
-      var paymentForm = document.getElementById('paymentForm');
+     const paymentForm = document.getElementById('paymentForm');
     paymentForm.addEventListener('submit', payWithPaystack, false);
-    function payWithPaystack() {
-     var handler = PaystackPop.setup({
+    function payWithPaystack(e) {
+      e.preventDefault();
+     let handler = PaystackPop.setup({
       key: 'pk_test_159d0067f8326b83fa30e0b1ad016b14cb69d85c', // Replace with your public key
     email: document.getElementById('email-address').value,
     amount: document.getElementById('amount').value * 100, // the amount value is multiplied by 100 to convert to the lowest currency unit
     currency: 'GHS', // Use GHS for Ghana Cedis or USD for US Dollars
-    ref: 'YOUR_REFERENCE', // Replace with a reference you generated
+    ref: '', // Replace with a reference you generated
  
        
     callback: function(response) {
